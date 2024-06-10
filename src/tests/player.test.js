@@ -1,6 +1,6 @@
 import { Player } from "../objects/player";
 
-const player1 = new Player("player1");
+const player1 = new Player("player1", "X");
 
 it('player1`s name is player1 ', () => {
     expect(player1.name).toBe("player1")

@@ -1,6 +1,7 @@
 class Gameboard {
     constructor(board) {
       this.board = this.createBoard(3);
+      this.gameEnded = false;
     }
    createBoard(size) {
     let board = [];
@@ -12,9 +13,22 @@ class Gameboard {
     }
     return board
    }
-   placeMarker(playerSymbol,x,y) {
-    
+   placeMarker(player,x,y) {
+    if(this.gameEnded === false) {
+    if(this.board[x][y] !== "0") {
+        return;
+    } else if(this.board[x][y] === "0") {
+        this.board[x][y] = player.symbol
+    }
+   } else if(this.gameEnded === true) {
+    return
    }
+ }
+ gameWon() {
+    if(this.board[0][0] === "X" && this.board[0][1] === "X" && this.board[0][2] === "X") {
+        this.gameEnded = true;
+    }
+ }
 }
 
 export {Gameboard};

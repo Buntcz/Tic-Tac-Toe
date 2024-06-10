@@ -1,5 +1,5 @@
 class Player {
-    constructor(name,symbol = "X") {
+    constructor(name,symbol) {
         this.name = name;
         this.symbol = symbol;
     }
