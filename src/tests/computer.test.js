@@ -1,5 +1,5 @@
-import { Gameboard } from "../objects/gameboard";
-import { Computer } from "../objects/computer";
+import { Gameboard } from "../objects/gameboard.mjs";
+import { Computer } from "../objects/computer.mjs";
 
 let gameboard = new Gameboard();
 let computer = new Computer("AI", "O");
