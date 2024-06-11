@@ -4,29 +4,33 @@ class Computer {
         this.symbol = symbol;
     }
     getRandomX() {
-     let randomX = Math.floor(Math.random() *  3)
+     let randomX = Math.floor(Math.random() *  2)
      return randomX
     }
     getRandomY() {
-      let randomY = Math.floor(Math.random() * 3)
+      let randomY = Math.floor(Math.random() * 2)
       return randomY
     }
     placeRandomMarker(comp,gameboard) {
-    
+        let compTurns = 0
         let symbol = comp;
         let x = this.getRandomX();
         let y = this.getRandomY();
+      while(compTurns < 4) {
         if(gameboard.gameEnded === false) {
-       if(gameboard.board[x][y] !== "0") {
-         return x = this.getRandomX(),y = this.getRandomY()
-        
-       } 
-       if(gameboard.board[x][y] === "0") {
-       gameboard.placeMarker(symbol,x,y)
+          if(gameboard.board[x][y] !== "0") {
+            x = this.getRandomX()
+            y = this.getRandomY()
+            return;
+          } 
+          if(gameboard.board[x][y] === "0") {
+          gameboard.placeMarker(symbol,x,y)
+          compTurns++
+          }
+       } else if(gameboard.gameEnded === true) {
+           break;
        }
-    } else if(gameboard.gameEnded === true) {
-        return;
-    }
+      }
 }
 }
 

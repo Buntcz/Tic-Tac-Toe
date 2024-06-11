@@ -57,3 +57,14 @@ it("gameEnded should be changed to true", () => {
     gameboard.gameWon();
     expect(gameboard.gameEnded).toBeTruthy()
 })
+
+it("gameboard has been reset", () => {
+    gameboard.resetGame();
+    expect(gameboard.board).toStrictEqual(
+        [
+            ['0','0','0'],
+            ['0','0','0'],
+            ['0','0','0']
+        ]
+    )
+})
